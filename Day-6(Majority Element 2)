@@ -1,0 +1,29 @@
+# Question Statement 
+
+Given an array of positive integers arr[], return the second largest element from the array.
+If the second largest element doesn't exist then return -1.
+
+Note: The second largest element should not be equal to the largest element.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+# Code (in C++)
+
+class solution{
+public:
+int getSecondLargest(vector<int>& arr) {
+        int max = INT_MIN; 
+        int smax = INT_MIN; 
+        for (int num : arr) {
+            if (num > max) {
+                smax = max; 
+                max = num;  
+            } else if (num > smax && num != max) {
+                smax = num; 
+            }
+        }
+        return (smax == INT_MIN) ? -1 : smax;
+    }
+};
+
+-----------------------------------------------------------------------------------------------------------------------------
