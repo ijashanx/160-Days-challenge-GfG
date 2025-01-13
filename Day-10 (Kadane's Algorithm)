@@ -1,1 +1,17 @@
+#Solution(in cpp)
 
+class Solution {
+  public:
+
+    int maxSubarraySum(vector<int> &arr) {
+    int current_sum = 0;
+    int max_sum = INT_MIN;
+
+    for (int element:arr){
+        current_sum = max(element, current_sum + element);
+        max_sum = max(max_sum, current_sum);
+
+    }
+    return max_sum;
+    }
+};
