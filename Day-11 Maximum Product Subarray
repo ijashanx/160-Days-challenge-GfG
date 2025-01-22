@@ -1,1 +1,33 @@
+# Code Statement 
 
+Given an array arr[] that contains positive and negative integers (may contain 0 as well).
+Find the maximum product that we can get in a subarray of arr[].
+
+Note: It is guaranteed that the output fits in a 32-bit integer.
+
+# Code (in java)
+
+class Solution {
+    int maxProduct(int[] arr) { 
+       int n=arr.length;
+       int maxProduct=arr[0]; 
+       int currmin=arr[0];
+       int currmax=arr[0];
+       for(int i=1;i<n;i++){
+           if(arr[i]<0){
+               int temp=currmax;
+               currmax=currmin;
+               currmin=temp;
+           }
+           currmax=Math.max(arr[i],currmax*arr[i]);
+           currmin=Math.min(arr[i],currmin*arr[i]);
+           maxProduct=Math.max(maxProduct,currmax);
+       }
+       return maxProduct;
+    }
+}
+
+# Complexities
+
+1.)Time complexity :- O(n)
+2.)Space complexity :- O(1)
